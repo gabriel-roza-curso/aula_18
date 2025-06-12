@@ -226,7 +226,10 @@ try:
 
     if not df_roubo_veiculo_outliers_superiores.empty:
         dados_superiores =df_roubo_veiculo_outliers_superiores.sort_values(by='roubo_veiculo', ascending=True)
+        ax[1].set_title('Outliers Superiores')
+        ax[1].set_xlabel('Total Roubos de Veículos')
 
+        barras = ax[1].barh(dados_superiores['munic'], dados_superiores['roubo_veiculo'], color='black')
         ax[1].barh(dados_superiores['munic'], dados_superiores['roubo_veiculo'])
     else:
         ax[1].text(0.5, 0.5, 'Sem Outliers', ha='center', va='center', fontsize=8)
